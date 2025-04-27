@@ -10,10 +10,12 @@ def mask_account_card(payment_details: Union[str]) -> Union[str]:
     :param payment_details: Полученые реквизиты карты или счета
     :return: Функция возвращает строку с наименованием и замаскированным номером
     """
-    if len(payment_details) == 25:
+    if len([num_length for num_length in payment_details if num_length.isdigit()]) == 20:
         return f"{payment_details[:-20]}{get_mask_account(payment_details[-20:])}"
-    else:
+    elif len([num_length for num_length in payment_details if num_length.isdigit()]) == 16:
         return f"{payment_details[:-16]}{get_mask_card_number(payment_details[-16:])}"
+    else:
+        return f"Некорректный номер!"
 
 
 def get_date(date_time_info: Union[str]) -> Union[str]:
