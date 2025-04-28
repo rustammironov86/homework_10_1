@@ -1,13 +1,13 @@
 from datetime import datetime
 from typing import Union
 
-from masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(payment_details: Union[str]) -> Union[str]:
     """
     Функция обрабатывать информацию как о картах, так и о счетах
-    :param payment_details: Полученые реквизиты карты или счета
+    :param payment_details: Полученные реквизиты карты или счета в виде строки
     :return: Функция возвращает строку с наименованием и замаскированным номером
     """
     if len([num_length for num_length in payment_details if num_length.isdigit()]) == 20:
@@ -15,12 +15,12 @@ def mask_account_card(payment_details: Union[str]) -> Union[str]:
     elif len([num_length for num_length in payment_details if num_length.isdigit()]) == 16:
         return f"{payment_details[:-16]}{get_mask_card_number(payment_details[-16:])}"
     else:
-        return f"Некорректный номер!"
+        return "Некорректный номер!"
 
 
 def get_date(date_time_info: Union[str]) -> Union[str]:
     """
-    Функция время и дату в формате ISO 8601,
+    Функция время и дату в формате ISO 8601 в виде строки,
     возвращает в формате "ДД.ММ.ГГГГ"
 
     """
