@@ -2,6 +2,8 @@ import pytest
 
 from src.masks import get_mask_card_number, get_mask_account
 
+"""Импортируем необходимые функции и pytest"""
+
 
 @pytest.mark.parametrize(
     "string_card, expected_card",
@@ -13,6 +15,12 @@ from src.masks import get_mask_card_number, get_mask_account
     ],
 )
 def test_get_mask_card_number(string_card: str, expected_card: str) -> None:
+    """
+    Функция для тестирования работы get_mask_card_number с использованием параметризации
+    :param string_card: Из кортеджа берутся варианты номера карты(корректный,
+    более длинный/короткий/с символами вместо цифр)
+    :param expected_card: Правильный вывод данных маски для сравнения
+    """
     assert get_mask_card_number(string_card) == expected_card
 
 
@@ -26,4 +34,10 @@ def test_get_mask_card_number(string_card: str, expected_card: str) -> None:
     ],
 )
 def test_get_mask_account(string_account: str, expected_account: str) -> None:
+    """
+    Функция для тестирования работы get_mask_account с использованием параметризации
+    :param string_account: Из кортеджа берутся варианты номера счета(корректный,
+    более длинный/короткий/с символами вместо цифр)
+    :param expected_account: Правильный вывод данных маски для сравнения
+    """
     assert get_mask_account(string_account) == expected_account
