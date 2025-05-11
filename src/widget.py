@@ -29,13 +29,3 @@ def get_date(date_time_info: Union[str]) -> Union[str]:
         return date_info.strftime("%d.%m.%Y")
     except ValueError:
         return "Некорректная дата!"
-
-
-if __name__ == "__main__":
-    payment_details = str(input("Введите платежные реквизиты:"))
-    """Получаем платежные реквизиты карты или счета"""
-    date_time_info = str(input("Введите дату и время в формате ISO 8601:"))
-    """Получаем строку с датой и временем в формате ISO 8601"""
-
-    print(mask_account_card(payment_details))
-    print(get_date(date_time_info))

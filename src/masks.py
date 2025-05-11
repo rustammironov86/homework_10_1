@@ -25,12 +25,3 @@ def get_mask_account(account_number: Union[str]) -> Union[str]:
         return f"**{account_number[-4:]}"
     else:
         return "Введен некорректный номер счета"
-
-
-if __name__ == "__main__":
-    card_number = str(input("Введите номер карты:"))
-    account_number = str(input("Введите номер счета:"))
-    """Получаем номер карты и счета"""
-
-    print(get_mask_card_number(card_number))
-    print(get_mask_account(account_number))
