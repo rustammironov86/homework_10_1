@@ -2,6 +2,13 @@ from typing import Any, Generator
 
 
 def filter_by_currency(transactions_list_cur: list, currency: str) -> Generator[str | dict, None, None]:
+    """
+    Функция filter_by_currency принимает на вход список словарей, представляющих транзакции
+    и возвращает итератор, который поочередно выдает транзакции,
+    где валюта операции соответствует заданной (например, USD).
+    :param transactions_list_cur: список словарей, представляющих транзакции
+    :param currency: валюта операций
+    """
     if not transactions_list_cur:
         yield "Нет транзакций"
     for item_currency in transactions_list_cur:
@@ -64,6 +71,11 @@ for _ in range(5):
 
 
 def transaction_descriptions(transactions_list_descr: list) -> Generator[str, None, None]:
+    """
+    Функция transaction_descriptions принимает на вход список словарей, представляющих транзакции
+    и возвращает описание каждой операции по очереди.
+    :param transactions_list_descr: список словарей, представляющих транзакции
+    """
     if not transactions_list_descr:
         yield "Нет транзакций"
     for item in transactions_list_descr:
@@ -78,7 +90,15 @@ for _ in range(5):
     print(next(descriptions))
 
 
-def card_number_generator(start: Any, stop: Any) -> Generator[str, None]:
+def card_number_generator(start: int, stop: int) -> Generator[str, None]:
+    """
+    Функция использует генератор card_number_generator,
+    который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX
+    Генератор может сгенерировать номера карт в заданном диапазоне
+    от 0000 0000 0000 0001 до 9999 9999 9999 9999.
+    :param start: начало диапазона
+    :param stop: конец диапазона
+    """
     start_number = "0000000000000000"
     nums = (num for num in range(start, stop + 1))
     for num in nums:

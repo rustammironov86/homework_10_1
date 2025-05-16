@@ -4,6 +4,11 @@ from src.generators import filter_by_currency, transaction_descriptions, card_nu
 
 
 def test_filter_by_currency(transactions_generator_test: list) -> None:
+    """
+    Функция test_filter_by_currency проверяет работу с указанной валютой
+    и несоответствующей валютой или ее отсутствия
+    :param transactions_generator_test: фикстура подтягивается из conftest.py
+    """
     result = list(filter_by_currency(transactions_generator_test, "USD"))
     expected = [
         {
@@ -39,6 +44,10 @@ def test_filter_by_currency(transactions_generator_test: list) -> None:
     assert result == expected
 
     def test_empty_list_by_currency(transactions_generator_test_empty: list) -> None:
+        """
+        Функция test_empty_list_by_currency проверяет работу с пустым списком транзакций
+        :param transactions_generator_test_empty: фикстура подтягивается из conftest.py
+        """
         result = list(filter_by_currency(transactions_generator_test_empty, "USD"))
         assert result == ["Нет транзакций"]
 
@@ -56,11 +65,21 @@ def test_filter_by_currency(transactions_generator_test: list) -> None:
     ],
 )
 def test_transaction_descriptions(transactions_generator_test: list, expected_descriptions: list) -> None:
+    """
+    Функция test_transaction_descriptions проверяет корректность
+    вывода описания каждой операции по очереди также и отсутствие описания
+    :param transactions_generator_test: фикстура подтягивается из conftest.py
+    :param expected_descriptions: использует параметризацию в качестве сравнения
+    """
     result = list(transaction_descriptions(transactions_generator_test))
     assert result == expected_descriptions
 
 
 def test_empty_transaction_descriptions(transactions_generator_test_empty: list) -> None:
+    """
+    Функция test_empty_transaction_descriptions проверяет работу с пустым списком транзакций
+    :param transactions_generator_test_empty: фикстура подтягивается из conftest.py
+    """
     result = list(transaction_descriptions(transactions_generator_test_empty))
     assert result == ["Нет транзакций"]
 
@@ -74,6 +93,14 @@ def test_empty_transaction_descriptions(transactions_generator_test_empty: list)
     },
 )
 def test_card_number(start: int, end: int, first_number: str, end_number: str) -> None:
+    """
+    Функция test_card_number, проверяет корректность форматирования номеров карт
+    в формате XXXX XXXX XXXX XXXX
+    :param start: начало диапазона
+    :param end: конец диапазона
+    :param first_number: первая карта в диапазоне
+    :param end_number: последняя карта в диапазоне
+    """
     result = list(card_number_generator(start, end))
     assert result[0] == first_number
     assert result[-1] == end_number
