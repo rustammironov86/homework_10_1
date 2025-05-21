@@ -7,7 +7,7 @@ def test_log_sum() -> None:
     """
     Тест проверяет деление двух чисел
     """
-    @log
+    @log(filename='mylog.txt')
     def num(x: int|float, y: int|float) -> int|float:
         return x / y
 
@@ -19,7 +19,7 @@ def test_log_zero() -> None:
     """
     Функция проверяет деление на ноль
     """
-    @log
+    @log(filename='mylog.txt')
     def num(x: int|float, y: int|float) -> int|float:
         return x / y
 
@@ -27,7 +27,7 @@ def test_log_zero() -> None:
     assert result is None
 
 
-@log
+@log(filename='mylog.txt')
 def multiplier_ok(x: int|float, y: int|float) -> int|float:
     """
     Функция проверяет вывод сообщения о правильной работе
@@ -41,7 +41,7 @@ def test_log_ok_mess(capsys) -> None:
     assert captured.out == "multiplier_ok ok\n"
 
 
-@log
+@log(filename='mylog.txt')
 def log_zero_divide_mess(x: int|float, y: int|float) -> int|float:
     """
     Функция проверяет вывод сообщения об ошибке с указанием параметров
