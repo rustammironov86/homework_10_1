@@ -1,6 +1,6 @@
 import pytest
 
-from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
+from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
 def test_filter_by_currency(transactions_generator_test: list) -> None:
@@ -43,13 +43,14 @@ def test_filter_by_currency(transactions_generator_test: list) -> None:
     ]
     assert result == expected
 
-    def test_empty_list_by_currency(transactions_generator_test_empty: list) -> None:
-        """
-        Функция test_empty_list_by_currency проверяет работу с пустым списком транзакций
-        :param transactions_generator_test_empty: фикстура подтягивается из conftest.py
-        """
-        result = list(filter_by_currency(transactions_generator_test_empty, "USD"))
-        assert result == ["Нет транзакций"]
+
+def test_empty_list_by_currency(transactions_generator_test_empty: list) -> None:
+    """
+    Функция test_empty_list_by_currency проверяет работу с пустым списком транзакций
+    :param transactions_generator_test_empty: фикстура подтягивается из conftest.py
+    """
+    result = list(filter_by_currency(transactions_generator_test_empty, "USD"))
+    assert result == ["Нет транзакций"]
 
 
 @pytest.mark.parametrize(
