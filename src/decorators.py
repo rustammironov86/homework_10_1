@@ -22,14 +22,18 @@ def log(filename=None) -> any:
         @wraps(func)
         def wrapper(*args, **kwargs) -> any:
             try:
-                    result = func(*args, **kwargs)
+                result = func(*args, **kwargs)
+                if filename:
                     logging.info(f"{func.__name__} ok")
+                else:
                     print(f"{func.__name__} ok")
-                    return result
+                return result
             except Exception as e:
+                if filename:
                     logging.exception(f"{func.__name__} error: {type(e).__name__} Inputs: {args}, {kwargs}")
+                else:
                     print(f"{func.__name__} error: {type(e).__name__} Inputs: {args}, {kwargs}")
-
+                raise e
         return wrapper
     return decorator
 
@@ -42,4 +46,4 @@ def num(x: int|float, y: int|float) -> int|float:
     return x / y
 
 
-print(num(3, 0))
+print(num(3, 2))

@@ -22,3 +22,12 @@ Traceback (most recent call last):
     return x / y
            ~~^~~
 ZeroDivisionError: division by zero
+2025-05-22 16:20:32,941 ERROR num error: ZeroDivisionError Inputs: (3, 0), {}
+Traceback (most recent call last):
+  File "C:\Users\User\PycharmProjects\Lesson_9_1_masks\src\decorators.py", line 25, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\User\PycharmProjects\Lesson_9_1_masks\src\decorators.py", line 46, in num
+    return x / y
+           ~~^~~
+ZeroDivisionError: division by zero
+2025-05-23 11:31:08,511 INFO num ok
