@@ -18,6 +18,7 @@ def log(filename=None) -> any:
         format="%(asctime)s %(levelname)s %(message)s",
         encoding="utf-8",
     )
+
     def decorator(func: Callable) -> any:
         @wraps(func)
         def wrapper(*args, **kwargs) -> any:
@@ -33,17 +34,19 @@ def log(filename=None) -> any:
                     logging.exception(f"{func.__name__} error: {type(e).__name__} Inputs: {args}, {kwargs}")
                 else:
                     print(f"{func.__name__} error: {type(e).__name__} Inputs: {args}, {kwargs}")
-                raise e
+                # raise e
+
         return wrapper
+
     return decorator
 
 
-@log(filename='mylog.txt')
-def num(x: int|float, y: int|float) -> int|float:
-    """
-    Функция деления на ноль
-    """
-    return x / y
-
-
-print(num(3, 2))
+# @log(filename='mylog.txt')
+# def num(x: int|float, y: int|float) -> int|float:
+#     """
+#     Функция деления на ноль
+#     """
+#     return x / y
+#
+#
+# print(num(3, 0))

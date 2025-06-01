@@ -1,5 +1,3 @@
-
-
 from src.decorators import log
 
 
@@ -7,8 +5,9 @@ def test_log_sum() -> None:
     """
     Тест проверяет деление двух чисел
     """
-    @log(filename='mylog.txt')
-    def num(x: int|float, y: int|float) -> int|float:
+
+    @log(filename="mylog.txt")
+    def num(x: int | float, y: int | float) -> int | float:
         return x / y
 
     result = num(8, 4)
@@ -19,16 +18,17 @@ def test_log_zero() -> None:
     """
     Функция проверяет деление на ноль
     """
-    @log(filename='mylog.txt')
-    def num(x: int|float, y: int|float) -> int|float:
+
+    @log(filename="mylog.txt")
+    def num(x: int | float, y: int | float) -> int | float:
         return x / y
 
     result = num(8, 0)
     assert result is None
 
 
-@log(filename='mylog.txt')
-def multiplier_ok(x: int|float, y: int|float) -> int|float:
+@log(filename=None)
+def multiplier_ok(x: int | float, y: int | float) -> int | float:
     """
     Функция проверяет вывод сообщения о правильной работе
     """
@@ -41,8 +41,8 @@ def test_log_ok_mess(capsys) -> None:
     assert captured.out == "multiplier_ok ok\n"
 
 
-@log(filename='mylog.txt')
-def log_zero_divide_mess(x: int|float, y: int|float) -> int|float:
+@log(filename=None)
+def log_zero_divide_mess(x: int | float, y: int | float) -> int | float:
     """
     Функция проверяет вывод сообщения об ошибке с указанием параметров
     :param x:

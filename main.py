@@ -1,4 +1,8 @@
+import json
+
+from config import BASE_DIR
 from src import processing
+from src.external_api import transactions_summ_currency
 from src.generators import filter_by_currency
 
 if __name__ == "__main__": # pragma: no cover
@@ -107,3 +111,11 @@ if __name__ == '__main__': # pragma: no cover
     print(next(filter))
     print(next(filter))
     print(next(filter))
+
+if __name__ == "__main__": # pragma: no cover
+
+    with open(BASE_DIR + "/data/operations.json", encoding="utf-8") as file:
+        file_json = json.load(file)
+    for i in file_json:
+
+        print(transactions_summ_currency(i, "RUB"))
