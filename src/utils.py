@@ -2,6 +2,7 @@ import json
 import os
 
 
+
 def correct_json_file(json_file):
     """Функция проверяет наличие файла с транзакциями и возвращает их"""
     try:
