@@ -1,0 +1,16 @@
+2025-06-02 21:36:18,872 ERROR num error: ZeroDivisionError Inputs: (3, 0), {}
+Traceback (most recent call last):
+  File "C:\Users\User\PycharmProjects\Lesson_9_1_masks\src\decorators.py", line 26, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\User\PycharmProjects\Lesson_9_1_masks\src\decorators.py", line 49, in num
+    return x / y
+           ~~^~~
+ZeroDivisionError: division by zero
+2025-06-02 21:37:27,795 ERROR num error: ZeroDivisionError Inputs: (3, 0), {}
+Traceback (most recent call last):
+  File "C:\Users\User\PycharmProjects\Lesson_9_1_masks\src\decorators.py", line 26, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\User\PycharmProjects\Lesson_9_1_masks\src\decorators.py", line 49, in num
+    return x / y
+           ~~^~~
+ZeroDivisionError: division by zero
