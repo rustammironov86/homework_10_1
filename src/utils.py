@@ -38,8 +38,8 @@ def correct_json_file(json_file):
 def open_transaction_xlsx_file(transaction_xlsx):
     """Функция проверяет наличие файла XLSX с транзакциями и возвращает их"""
     try:
-        df = pd.read_excel(transaction_xlsx, engine='openpyxl')
-        transaction_xlsx_list_dict = df.to_dict(orient='records')
+        df = pd.read_excel(transaction_xlsx, engine="openpyxl")
+        transaction_xlsx_list_dict = df.to_dict(orient="records")
         return transaction_xlsx_list_dict
     except Exception as ex:
         return f"Код ошибки {ex}"
@@ -48,8 +48,8 @@ def open_transaction_xlsx_file(transaction_xlsx):
 def open_transaction_csv_file(transaction_csv):
     """Функция проверяет наличие файла CSV с транзакциями и возвращает их"""
     try:
-        with open(transaction_csv, encoding="utf-8", newline='') as csv_file:
-            reader_csv = csv.DictReader(csv_file, delimiter=';')
+        with open(transaction_csv, encoding="utf-8", newline="") as csv_file:
+            reader_csv = csv.DictReader(csv_file, delimiter=";")
             transaction_csv_list_dict = list(reader_csv)
             return transaction_csv_list_dict
     except Exception as ex:

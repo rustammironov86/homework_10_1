@@ -133,7 +133,7 @@ def transactions_usd():
             "description": "Перевод организации",
             "from": "MasterCard 7158300734726758",
             "to": "Счет 35383033474447895560",
-        }
+        },
     ]
 
 
