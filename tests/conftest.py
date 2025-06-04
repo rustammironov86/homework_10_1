@@ -85,10 +85,24 @@ def transactions_generator_test_empty() -> List[Dict]:
 
 
 @pytest.fixture
-def correct_path():
+def correct_path_json():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     path_json_file = os.path.join(script_dir, "../data/operations.json")
     return path_json_file
+
+
+@pytest.fixture
+def correct_path_xlsx():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    path_xlsx_file = os.path.join(script_dir, "../data/transactions_excel.xlsx")
+    return path_xlsx_file
+
+
+@pytest.fixture
+def correct_path_csv():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    path_csv_file = os.path.join(script_dir, "../data/transactions.csv")
+    return path_csv_file
 
 
 @pytest.fixture
@@ -99,6 +113,23 @@ def transactions_usd():
             "state": "EXECUTED",
             "date": "2019-07-03T18:35:29.512364",
             "operationAmount": {"amount": "8221.37", "currency": {"name": "USD", "code": "USD"}},
+            "description": "Перевод организации",
+            "from": "MasterCard 7158300734726758",
+            "to": "Счет 35383033474447895560",
+        },
+        {
+            "id": 41428829,
+            "state": "EXECUTED",
+            "date": "2019-07-03T18:35:29.512364",
+            "description": "Перевод организации",
+            "from": "MasterCard 7158300734726758",
+            "to": "Счет 35383033474447895560",
+        },
+        {
+            "id": 41428829,
+            "state": "EXECUTED",
+            "date": "2019-07-03T18:35:29.512364",
+            "operationAmount": {"amount": "8221.37", "currency": {"name": "USD", "code": "ADD"}},
             "description": "Перевод организации",
             "from": "MasterCard 7158300734726758",
             "to": "Счет 35383033474447895560",

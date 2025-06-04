@@ -2,8 +2,6 @@ import pytest
 
 from src.masks import get_mask_account, get_mask_card_number
 
-"""Импортируем необходимые функции и pytest"""
-
 
 @pytest.mark.parametrize(
     "string_card, expected_card",
