@@ -69,7 +69,7 @@ def test_filter_by_date_false(filter_processing_state_date: List[Dict], reverse:
 def test_filter_by_date_empty(filter_processing_date_empty: List[Dict], reverse: bool = True) -> None:
     """
     Функция проверяет корректность введенных данных даты
-    :param filter_processing_state_empty: Фикстура подтягивается из conftest.py в виде списка словарей
+    :param filter_processing_date_empty: Фикстура подтягивается из conftest.py в виде списка словарей
     :param reverse: reverse=False что не имеет значения,
     если есть некорректные даты Try/except выведут ошибку
     """
